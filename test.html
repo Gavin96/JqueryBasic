@@ -13,8 +13,8 @@
 			var p = document.getElementById('byJs');
             // 将元素p在html中的内容改变
 			p.innerHTML = '使用JS原生语法';
-            // 将元素p的内容颜色改为红色
-			p.style.color = 'red';	
+            // 将元素p的内容颜色改为绿色
+			p.style.color = 'green';	
     	}
     </script>
     
@@ -36,6 +36,23 @@
 <body>
     <p id="byJs"></p>
     <p id="byJquery"></p>
+    <div>第一行</div>
+    <div>第二行</div>
+    <div>第三行</div>
+
+    <script type="text/javascript">
+    //
+        var $div=$('div');   //获取Jquery对象    //DOM--->Jquery
+        // var div=$div.get(0);
+        var $first=$div.first();
+        $first.css('color','#CD5555');
+        // div.style.color='#CD5555';
+    //
+    	var div=document.getElementsByTagName('div');
+    	var $xxx=$(div);    //根据标签名得到相应的Jquery对象   //DOM--->Jquery
+    	var xx=$xxx.get(1);  //通过get方法将其转化为DOM对象   //Jquery--->DOM
+    	xx.style.color='#FF4500';
+    </script>
 </body>
 
 </html>
