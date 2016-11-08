@@ -22,7 +22,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             /**
-             * 通过jQuery语法获取id为byJquery的元素得到一个jQuery对象
+             * 通过jQuery语法获取id为byjQuery的元素得到一个jQuery对象
              * 调用该对象的html()方法进行更改内容
              * 调用该对象的css()方法进行更改颜色样式
              */   
@@ -38,20 +38,42 @@
     <p id="byJquery"></p>
     <div>第一行</div>
     <div>第二行</div>
-    <div>第三行</div>
+    <div id="3rdRow">第三行</div>
+    <div class="4thRow">
+    	<button>OK</button>
+    </div>
+    <div class="4thRow">
+    	<button>Cancel</button>
+    </div>
 
     <script type="text/javascript">
-    //
-        var $div=$('div');   //获取Jquery对象    //DOM--->Jquery
+    //DOM与jQuery对象间的互相转换
+        var $div=$('div');   //获取jQuery对象    //DOM--->jQuery
         // var div=$div.get(0);
         var $first=$div.first();
         $first.css('color','#CD5555');
         // div.style.color='#CD5555';
     //
     	var div=document.getElementsByTagName('div');
-    	var $xxx=$(div);    //根据标签名得到相应的Jquery对象   //DOM--->Jquery
-    	var xx=$xxx.get(1);  //通过get方法将其转化为DOM对象   //Jquery--->DOM
+    	var $xxx=$(div);    //根据标签名得到相应的jQuery对象   //DOM--->jQuery
+    	var xx=$xxx.get(1);  //通过get方法将其转化为DOM对象   //jQuery--->DOM
     	xx.style.color='#FF4500';
+    //
+
+    $("#3rdRow").css({"border":"3px solid red","width":"60px"});  //id选择器   //添加多个css样式
+
+    var divs=document.getElementsByClassName('4thRow');
+    for (var i=0;i<divs.length;i++){
+    	divs[i].style.border="2px solid blue";
+    	divs[i].style.padding="5px 2px 6px 6px";
+    	divs[i].style.margin="3px 0 0 0";
+    	divs[i].style.width="75px";
+    }
+
+    // $(".4thRow").css({"border":"....","padding":"......","width":"....."});  //类选择器 
+
+    // $("p").css("border","....");     //属性选择器
+
     </script>
 </body>
 
