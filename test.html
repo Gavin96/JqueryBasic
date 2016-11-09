@@ -2,51 +2,51 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title></title>
-    <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
-    
-    <!-- 使用JS原生语法 -->
-    <script type="text/javascript">
-        window.onload = function(){
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title></title>
+	<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+
+	<!-- 使用JS原生语法 -->
+	<script type="text/javascript">
+		window.onload = function(){
             // 通过原生JS语法获取id为byJs的元素p
-			var p = document.getElementById('byJs');
+            var p = document.getElementById('byJs');
             // 将元素p在html中的内容改变
-			p.innerHTML = '使用JS原生语法';
+            p.innerHTML = '使用JS原生语法';
             // 将元素p的内容颜色改为绿色
-			p.style.color = 'green';	
-    	}
-    </script>
-    
-    <!-- 使用jQuery语法 -->
-    <script type="text/javascript">
-        $(document).ready(function() {
+            p.style.color = 'green';	
+          }
+        </script>
+
+        <!-- 使用jQuery语法 -->
+        <script type="text/javascript">
+        	$(document).ready(function() {
             /**
              * 通过jQuery语法获取id为byjQuery的元素得到一个jQuery对象
              * 调用该对象的html()方法进行更改内容
              * 调用该对象的css()方法进行更改颜色样式
              */   
-            var $p = $('#byJquery');
-            $p.html('使用jQuery语法').css('color','blue');
-        });
-    </script>
-    
-</head>
+             var $p = $('#byJquery');
+             $p.html('使用jQuery语法').css('color','blue');
+           });
+         </script>
 
-<body>
-    <p id="byJs"></p>
-    <p id="byJquery"></p>
-    <div>第一行</div>
-    <div>第二行</div>
-    <div id="3rdRow">第三行</div>
-    <div class="4thRow">
-    	<button>OK</button>
-    </div>
-    <div class="4thRow">
-    	<button>Cancel</button>
-    </div>
+       </head>
 
-    <script type="text/javascript">
+       <body>
+       	<p id="byJs"></p>
+       	<p id="byJquery"></p>
+       	<div>第一行</div>
+       	<div>第二行</div>
+       	<div id="3rdRow">第三行</div>
+       	<div class="4thRow">
+       		<button>OK</button>
+       	</div>
+       	<div class="4thRow">
+       		<button>Cancel</button>
+       	</div>
+
+       	<script type="text/javascript">
     //DOM与jQuery对象间的互相转换
         var $div=$('div');   //获取jQuery对象    //DOM--->jQuery
         // var div=$div.get(0);
@@ -54,7 +54,7 @@
         $first.css('color','#CD5555');
         // div.style.color='#CD5555';
     //
-    	var div=document.getElementsByTagName('div');
+    var div=document.getElementsByTagName('div');
     	var $xxx=$(div);    //根据标签名得到相应的jQuery对象   //DOM--->jQuery
     	var xx=$xxx.get(1);  //通过get方法将其转化为DOM对象   //jQuery--->DOM
     	xx.style.color='#FF4500';
@@ -74,7 +74,21 @@
 
     // $("p").css("border","....");     //属性选择器
 
-    </script>
+    var elements=$("*");          //全选择器
+    elements.css("border","1px solid #3ED9121");
+
+    //层级选择器     后代元素  兄弟元素  相邻元素
+    // 子元素选择器   $("parent > child")  
+    // 选择所有指定"parent"元素中指定的"child"的直接元素
+    // 后代元素选择器  $("ancestor descendant") 
+    // 选择给定的祖先元素的所有后代元素，一个元素的后代可能是该元素的一个孩子、孙子、曾孙等
+    // 相邻兄弟选择器  $("prev + next") 
+    // 宣布在所有紧接在"prev"元素后的"next"元素
+    // 一般兄弟选择器  $("prev ~ siblings") 
+    // 匹配"prev"元素之后的所有兄弟元素。具有相同的父元素，并匹配过滤"siblings"选择器
+    // $("div > p")   $("div p")   $(".className + div")  $(".className ~ div")
+
+  </script>
 </body>
 
 </html>
